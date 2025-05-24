@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html lang="it">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Riccardo Sabbatini Peverieri</title>
+    <link rel="icon" href="img/favicon.ico">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        /* Impostazioni generali */
+        body {
+            background-color: #f4f6f9;
+            color: #333;
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            padding-top: 70px; /* Spazio dalla navbar */
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar */
+        .navbar {
+            background: rgba(10, 25, 47, 0.85);
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .navbar .nav-link {
+            color: white;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        .navbar:hover {
+            background: rgba(10, 25, 47, 1);
+        }
+
+        .navbar .nav-link:hover {
+            color: #007b8a;
+        }
+
+        /* Contenitore centrale */
+        .container-central {
+            max-width: 1200px;
+            width: 100%;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            flex: 1;
+            margin: auto;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 80vh;
+            background-color: #ffffff;
+            color: #0a192f;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            text-align: left;
+            border-radius: 15px;
+            padding: 60px;
+            background: linear-gradient(to right, #f0f4f8, #ffffff);
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            color: #333;
+            text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            color: #555;
+        }
+
+        .hero img {
+            width: 100%;
+            max-width: 300px;
+            height: auto;
+            border-radius: 20px;
+        }
+
+        /* Sezione */
+        .section {
+            padding: 60px 20px;
+            text-align: center;
+        }
+
+        .section h2 {
+            color: #0a192f;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 60px;
+        }
+
+        /* Pulsanti per le aree */
+        .btn-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 30px;
+        }
+
+        .btn-area {
+            background: #0a192f;
+            color: white;
+            padding: 20px;
+            border-radius: 15px;
+            text-decoration: none;
+            transition: 0.3s ease-in-out;
+            width: 220px;
+            height: 220px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn-area img {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 15px;
+            transition: transform 0.3s;
+        }
+
+        .btn-area:hover {
+            background: #007b8a;
+            color: #0a192f;
+            transform: translateY(-10px);
+        }
+
+        .btn-area:hover img {
+            transform: scale(1.1);
+        }
+
+        .btn-area span {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Footer */
+        footer {
+            background: #0a192f;
+            color: white;
+            text-align: center;
+            padding: 30px 15px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #007b8a;
+        }
+
+        footer h5 {
+            font-weight: 600;
+            margin-bottom: 15px;
+        }
+
+        footer p {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .btn-area {
+                width: 100%;
+                height: auto;
+                padding: 30px 20px;
+            }
+
+            .btn-area img {
+                width: 60px;
+                height: 60px;
+            }
+
+            .hero {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero div {
+                text-align: center !important;
+            }
+
+            .hero img {
+                margin-top: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">RSP</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#progetti">Progetti</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contatti">Contatti</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container-central">
+
+        <section class="hero">
+            <div style="flex: 1;">
+                <h1>Benvenuto nel mio sito!</h1>
+                <p>Scopri i miei progetti e il mio percorso.</p>
+            </div>
+            <div style="flex: 0 0 40%; text-align: right;">
+                <img src="img/immaginePersona.jpg" alt="Immagine Profilo">
+            </div>
+        </section>
+
+        <section id="progetti" class="section">
+            <h2>Le Mie Aree</h2>
+            <div class="btn-container">
+                <a href="personale.html" class="btn-area">
+                    <img src="img/PERSONALE.ico" alt="Personale">
+                    <span>Area Personale</span>
+                </a>
+                <a href="umanistica.html" class="btn-area">
+                    <img src="img/UMANISTICA.ico" alt="Umanistica">
+                    <span>Umanistica</span>
+                </a>
+                <a href="educazione-civica.html" class="btn-area">
+                    <img src="img/EDUCAZIONECIVICA.ico" alt="Educazione Civica">
+                    <span>Educazione Civica</span>
+                </a>
+                <a href="pcto.html" class="btn-area">
+                    <img src="img/PCTO.ico" alt="PCTO">
+                    <span>PCTO</span>
+                </a>
+                <a href="professionale.html" class="btn-area">
+                    <img src="img/PROFESSIONALE.ico" alt="Professionale">
+                    <span>Professionale</span>
+                </a>
+            </div>
+        </section>
+
+    </div>
+
+    <footer id="contatti">
+        <div class="container">
+            <div class="row">
+                    <h5>Contatti</h5>
+                    <p>Indirizzo: Contrada Fratelli Kennedy, 22 - Barbara</p>
+                    <p>Email: riccardosabbatinipeverieri@gmail.com</p>
+                    <p>Telefono: 3313967157</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
