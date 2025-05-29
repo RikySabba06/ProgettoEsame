@@ -1,0 +1,65 @@
+//PROBLEMA: Come programma in C che sfrutta il parallelismo pthread abbiamo pensato di calcolare la somma dei quadrati degli elementi di una matrice. 
+//SOLUZIONE:
+//1- Creare una matrice di dimensioni predefinite e inizializzarla con valori casuali. 
+//2- Dividere il calcolo della somma dei quadrati degli elementi tra più thread (in questo caso 4).
+//3- Ogni thread somma i quadrati degli elementi assegnati e memorizza il risultato parziale in un'array di somme parziali (sommaParziale[]).
+//4- Una volta che tutti i thread hanno completato il calcolo, verrà calcolata la somma totale delle somme parziali per ottenere il risultato finale. 
+
+
+#include <pthread.h>
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+#define NUMERO_THREADS 4
+#define DIMENSIONE_MATRICE 100
+
+int matrice[DIMENSIONE_MATRICE][DIMENSIONE_MATRICE];
+int sommaParziale[NUMERO_THREADS];
+void *sommaThread(void *arg) 
+{
+  long threadID = (long)arg;
+  int start = threadID * (DIMENSIONE_MATRICE / NUMERO_THREADS);
+  int end = (threadID + 1) * (DIMENSIONE_MATRICE / NUMERO_THREADS);
+  int somma = 0;
+  for (int i = start; i < end; i++) 
+  {
+    for (int j = 0; j < DIMENSIONE_MATRICE; j++) 
+    {
+      somma += matrice[i][j] * matrice[i][j];
+    }
+  }
+  sommaParziale[threadID] = somma;
+  pthread_exit(NULL);
+}
+
+int main() 
+{
+  pthread_t threads[NUMERO_THREADS];
+  srand(time(NULL));
+
+  for (int i = 0; i < DIMENSIONE_MATRICE; i++) 
+  {
+    for (int j = 0; j < DIMENSIONE_MATRICE; j++)
+    {
+      matrice[i][j] = rand() % 10; 
+    }
+  }
+  for (long i = 0; i < NUMERO_THREADS; i++) 
+  {
+    pthread_create(&threads[i], NULL, sommaThread, (void *)i);
+  }
+  for (long i = 0; i < NUMERO_THREADS; i++) 
+  {
+    pthread_join(threads[i], NULL);
+  }
+
+  int sommaTotale = 0;
+  for (int i = 0; i < NUMERO_THREADS; i++) 
+  {
+    sommaTotale += sommaParziale[i];
+  }
+  printf("Somma dei quadrati degli elementi della matrice: %d\n", sommaTotale);
+
+  return 0;
+}
