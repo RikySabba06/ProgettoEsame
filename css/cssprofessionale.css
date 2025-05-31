@@ -294,6 +294,108 @@
             transform: translateY(-5px);
             background: var(--primary-color);
         }
+
+        /* GPOI Section - PDF Embed Styles */
+        .pdf-preview-container {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 123, 138, 0.1);
+        }
+
+        .pdf-viewer-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+            height: 0;
+            overflow: hidden;
+            border-radius: 10px;
+            background: #f5f5f5;
+        }
+
+        .pdf-embed {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .pdf-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 100%);
+            padding: 20px;
+            text-align: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .pdf-viewer-wrapper:hover .pdf-overlay {
+            opacity: 1;
+        }
+
+        .download-btn {
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            transform: translateY(10px);
+            transition: transform 0.3s ease;
+        }
+
+        .pdf-viewer-wrapper:hover .download-btn {
+            transform: translateY(0);
+        }
+
+        .pdf-meta-info {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: var(--text-light);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pdf-meta-info i {
+            margin-right: 8px;
+            color: var(--accent-color);
+        }
+
+        /* Keep the existing feature styles */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            margin-right: 10px;
+            width: 25px;
+            text-align: center;
+        }
+
+        strong {
+            color: var(--accent-color);
+            font-weight: 600;
+        }
         
         /* Animations */
         @keyframes fadeIn {
@@ -303,6 +405,153 @@
         
         .animated-section {
             animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .gpoi-container {
+            display: flex;
+            gap: 30px;
+            align-items: stretch;
+        }
+
+        .gpoi-description {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(10, 25, 47, 0.03);
+            border-radius: 12px;
+            padding: 25px;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .gpoi-pdf-viewer {
+            flex: 1;
+            min-width: 400px;
+        }
+
+        /* PDF Viewer Enhanced */
+        .pdf-container {
+            background: white;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            border: 1px solid rgba(0, 123, 138, 0.1);
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pdf-iframe {
+            flex-grow: 1;
+            min-height: 600px;
+            border: none;
+            border-radius: 10px;
+            background: #f5f5f5;
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .pdf-controls {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 15px;
+            padding: 0 10px;
+        }
+
+        .pdf-download-btn {
+            background: var(--accent-color);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 6px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .pdf-download-btn:hover {
+            background: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .pdf-hint {
+            font-size: 0.85rem;
+            color: var(--text-light);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .pdf-hint i {
+            color: var(--accent-color);
+        }
+
+        /* Features Grid Update */
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .feature-item {
+            background: white;
+            padding: 12px 15px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-item i {
+            color: var(--accent-color);
+            font-size: 1.2rem;
+            width: 25px;
+            text-align: center;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 992px) {
+            .gpoi-container {
+                flex-direction: column;
+            }
+            
+            .gpoi-description,
+            .gpoi-pdf-viewer {
+                min-width: 100%;
+            }
+            
+            .pdf-iframe {
+                min-height: 500px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .pdf-iframe {
+                min-height: 400px;
+            }
+            
+            .pdf-controls {
+                flex-direction: column;
+                gap: 10px;
+                align-items: flex-start;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .pdf-iframe {
+                min-height: 350px;
+            }
         }
         
         /* Responsive */
